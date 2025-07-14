@@ -30,9 +30,16 @@ export default function Page() {
   return (
     <BookmarkProvider>
       <div className="min-h-screen bg-[#10141E]">
+        {/* Sabit sol sidebar */}
         <Header onSectionChange={setSection} />
-        <Search section={section} />
-        {renderContent()}
+
+        {/* Sağ içerik alanı */}
+        <main className="xl:px-6 xl:ml-[128px]">
+          <Search section={section} />
+          <div className="">
+            {renderContent()}
+          </div>
+        </main>
       </div>
     </BookmarkProvider>
   )

@@ -6,12 +6,12 @@ export default function BookmarksPage() {
   const { bookmarkedItems } = useBookmarks();
 
   return (
-    <div className="text-white p-4">
-      <h1 className="text-xl mb-4">Bookmarked Items</h1>
+    <div className="text-white sm:pt-[0px] p-4 sm:px-[25px]">
+      <h1 className="text-xl mb-4 sm:text-[32px]">Bookmarked Items</h1>
       {bookmarkedItems.length === 0 ? (
         <p>Hiç favori eklenmemiş.</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
           {bookmarkedItems.map((item, index) => (
             <div key={index} className="bg-[#1F1F1F] p-2 rounded-md">
               <img src={item.image} alt={item.title} className="w-full h-[110px] object-cover rounded-md" />

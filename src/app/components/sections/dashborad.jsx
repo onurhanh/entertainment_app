@@ -44,21 +44,21 @@ export default function MediaList() {
 
     return (
         <>
-            <div className="text-white px-4 pb-6 text-[20px] font-normal leading-[100%]">
+            <div className="text-white sm:px-[25px] sm:pt-0 py-4 px-4 pb-6 text-[20px] sm:text-[32px] font-normal leading-[100%]">
                 <h1>Trending</h1>
             </div>
 
             {/* Trending yatay scroll */}
-            <div className="overflow-x-auto whitespace-nowrap scroll-smooth px-4 hide-scrollbar">
+            <div className="overflow-x-auto whitespace-nowrap scroll-smooth sm:px-[25px] px-4 hide-scrollbar">
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
                     data.slice(0, 8).map((items, index) => (
                         <div
                             key={index}
-                            className="inline-block w-[240px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white"
+                            className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "
                         >
-                            <div className="relative h-[140px]">
+                            <div className="relative sm:text-[24px] h-[140px] sm:h-[230px]">
                                 <img
                                     src={items.image}
                                     alt={items.title}
@@ -73,15 +73,15 @@ export default function MediaList() {
                                         }`}
                                 >
                                     <Bookmark
-                                        size={16}
+                                        size={16}c 
                                         fill={
                                             isBookmarked(items.title) ? "currentColor" : "none"
                                         }
                                     />
                                 </button>
 
-                                <div className="absolute bottom-0 left-0 w-full px-3 pb-3 text-sm bg-gradient-to-t from-black/60 to-transparent">
-                                    <div className="flex items-center text-xs opacity-80 gap-2">
+                                <div className="absolute bottom-0 left-0 w-full sm:p-[24px] px-3 pb-3 text-sm bg-gradient-to-t from-black/60 to-transparent">
+                                    <div className="flex items-center sm:text-[15px]  text-xs opacity-80 gap-2">
                                         <span>{items.release_date.slice(0, 4)}</span>
                                         <span>•</span>
                                         <span className="flex items-center gap-1">
@@ -95,7 +95,7 @@ export default function MediaList() {
                                         <span>•</span>
                                         <span>{items.age_rating}</span>
                                     </div>
-                                    <h2 className="text-base font-semibold">{items.title}</h2>
+                                    <h2 className="text-base font-semibold sm:text-[24px]">{items.title}</h2>
                                 </div>
                             </div>
                         </div>
@@ -103,19 +103,19 @@ export default function MediaList() {
                 )}
             </div>
 
-            <div className="text-white px-4 py-5 text-[20px] font-normal leading-[100%]">
+            <div className="text-white px-4 py-5 sm:px-[32px] sm:text-[32px] text-[20px] font-normal leading-[100%]">
                 <h1>Recommended for you</h1>
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4">
+            <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-8 gap-4 p-4">
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
                     data.map((item, index) => (
                         <div
                             key={index}
-                            className="relative w-[164px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50"
+                            className="relative w-[164px] sm:w-[220] sm:h-[202px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50"
                         >
                             <button
                                 onClick={() => toggleBookmark(item)}
@@ -131,11 +131,11 @@ export default function MediaList() {
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-[110px] object-cover"
+                                className="w-full h-[110px] sm:h-[140px] object-cover"
                             />
 
                             <div className="text-white pt-2 flex flex-col justify-between">
-                                <div className="text-xs opacity-80 gap-2 flex items-center">
+                                <div className="text-xs sm:text-[13px] opacity-80 gap-2 flex items-center">
                                     <div className="capitalize gap-2 flex">
                                         <div>{item.release_date.slice(0, 4)}</div>
                                         <div className="w-[2px] h-[2px] border my-auto bg-[#FFFFFF]"></div>
@@ -152,7 +152,7 @@ export default function MediaList() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 className="text-base font-semibold py-1">
+                                    <h2 className="text-base sm:text-[18px] font-semibold py-1">
                                         {item.title}
                                     </h2>
                                 </div>
