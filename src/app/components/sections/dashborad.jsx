@@ -124,7 +124,7 @@ export default function MediaList() {
                 )}
             </div>
 
-            <div className="text-white px-4 py-5 sm:px-[32px] sm:text-[32px] text-[20px] font-normal leading-[100%]">
+            <div className="text-white px-4 py-5 sm:px-[25px] sm:text-[32px] text-[20px] font-normal leading-[100%]">
                 <h1>Recommended for you</h1>
             </div>
 

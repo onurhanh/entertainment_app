@@ -20,8 +20,24 @@ export const BookmarkProvider = ({ children }) => {
     localStorage.setItem("bookmarkedItems", JSON.stringify(bookmarkedItems));
   }, [bookmarkedItems]);
 
+  // ✅ Toggle Bookmark
+  const toggleBookmark = (item) => {
+    const exists = bookmarkedItems.find((i) => i.title === item.title);
+    if (exists) {
+      setBookmarkedItems((prev) =>
+        prev.filter((i) => i.title !== item.title)
+      );
+    } else {
+      setBookmarkedItems((prev) => [...prev, item]);
+    }
+  };
+
+  // ✅ Check if bookmarked
+  const isBookmarked = (title) =>
+    bookmarkedItems.some((item) => item.title === title);
+
   return (
-    <BookmarkContext.Provider value={{ bookmarkedItems, setBookmarkedItems }}>
+    <BookmarkContext.Provider value={{ bookmarkedItems, toggleBookmark, isBookmarked }}>
       {children}
     </BookmarkContext.Provider>
   );
