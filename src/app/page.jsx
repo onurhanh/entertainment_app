@@ -35,7 +35,6 @@ export default function Page() {
 
         {/* Sağ içerik alanı */}
         <main className="xl:px-6 xl:ml-[128px]">
-          <Search section={section} />
           <div className="">
             {renderContent()}
           </div>

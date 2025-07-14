@@ -1,18 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Bookmark, Film, Tv2 } from "lucide-react";
+import Search from "../search-bar";
 
 export default function MediaList() {
     const [data, setData] = useState([]);
     const [bookmarkedItems, setBookmarkedItems] = useState([]);
+    const [filteredData, setFilteredData] = useState([])
 
     // Veriyi çek
     useEffect(() => {
-        fetch("/data/data.json")
-            .then((res) => res.json())
-            .then((json) => setData(json))
-            .catch((err) => console.error(err));
-    }, []);
+        fetch('/data/data.json')
+            .then(res => res.json())
+            .then(json => {
+                setData(json)
+                setFilteredData(json)
+            })
+            .catch(err => console.error(err))
+    }, [])
 
     // localStorage'tan oku
     useEffect(() => {
@@ -44,6 +49,11 @@ export default function MediaList() {
 
     return (
         <>
+            <Search
+                section="dashboard"
+                data={data}
+                onFilter={setFilteredData}
+            />
             <div className="text-white sm:px-[25px] sm:pt-0 py-4 px-4 pb-6 text-[20px] sm:text-[32px] font-normal leading-[100%]">
                 <h1>Trending</h1>
             </div>
@@ -53,7 +63,7 @@ export default function MediaList() {
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
-                    data.slice(0, 8).map((items, index) => (
+                    filteredData.slice(0, 8).map((items, index) => (
                         <div
                             key={index}
                             className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "
@@ -68,12 +78,12 @@ export default function MediaList() {
                                 <button
                                     onClick={() => toggleBookmark(items)}
                                     className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(items.title)
-                                            ? "bg-[#10141E]/70 text-white"
-                                            : "bg-[#10141E]/70 text-white"
+                                        ? "bg-[#10141E]/70 text-white"
+                                        : "bg-[#10141E]/70 text-white"
                                         }`}
                                 >
                                     <Bookmark
-                                        size={16}c 
+                                        size={16} c
                                         fill={
                                             isBookmarked(items.title) ? "currentColor" : "none"
                                         }
@@ -112,7 +122,7 @@ export default function MediaList() {
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
-                    data.map((item, index) => (
+                    filteredData.map((item, index) => (
                         <div
                             key={index}
                             className="relative w-[164px] sm:w-[220] sm:h-[202px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50"

@@ -1,17 +1,22 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Bookmark, Film, Tv2 } from 'lucide-react';
+import Search from '../search-bar';
 
 export default function Tv() {
   const [data, setData] = useState([]);
   const [bookmarks, setBookmarks] = useState({});
+  const [filteredData, setFilteredData] = useState([])
 
   useEffect(() => {
     fetch('/data/data.json')
-      .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.error(err));
-  }, []);
+      .then(res => res.json())
+      .then(json => {
+        setData(json)
+        setFilteredData(json)
+      })
+      .catch(err => console.error(err))
+  }, [])
 
   const toggleBookmark = (index) => {
     setBookmarks((prev) => ({
@@ -21,6 +26,11 @@ export default function Tv() {
   };
   return (
     <>
+      <Search
+        section="dashboard"
+        data={data}
+        onFilter={setFilteredData}
+      />
       <div className='text-white sm:text-[32px] sm:pt-[0px] sm:px-[25px] px-4 py-4 text-[20px] font-normal leading-[100%]'>
         <h1>TV Series</h1>
       </div>
@@ -28,7 +38,7 @@ export default function Tv() {
         {data.length === 0 ? (
           <p className="text-white">Loading...</p>
         ) : (
-          data
+          filteredData
             .filter((item) => item.type === 'series')
             .map((item, index) => (
               <div key={index} className="relative sm:w-[220px] sm:h-[202px] w-[164px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50">
