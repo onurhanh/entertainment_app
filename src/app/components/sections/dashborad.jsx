@@ -108,7 +108,7 @@ export default function MediaList() {
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-8 gap-4 p-4">
+            <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4">
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
