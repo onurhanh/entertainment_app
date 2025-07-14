@@ -11,7 +11,7 @@ export default function BookmarksPage() {
       {bookmarkedItems.length === 0 ? (
         <p>Hiç favori eklenmemiş.</p>
       ) : (
-        <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
+        <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
           {bookmarkedItems.map((item, index) => (
             <div key={index} className="bg-[#1F1F1F] p-2 rounded-md">
               <img src={item.image} alt={item.title} className="w-full h-[110px] object-cover rounded-md" />
