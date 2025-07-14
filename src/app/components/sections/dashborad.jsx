@@ -5,9 +5,20 @@ import Search from "../search-bar";
 
 export default function MediaList() {
     const [data, setData] = useState([]);
-    const [bookmarkedItems, setBookmarkedItems] = useState([]);
     const [filteredData, setFilteredData] = useState([])
 
+    const [bookmarkedItems, setBookmarkedItems] = useState(() => {
+        if (typeof window !== "undefined") {
+            try {
+                const stored = localStorage.getItem("bookmarkedItems");
+                return stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                console.error("Bookmark verisi okunamadı", e);
+                return [];
+            }
+        }
+        return [];
+    });
     // Veriyi çek
     useEffect(() => {
         fetch('/data/data.json')

@@ -5,9 +5,21 @@ import Search from '../search-bar';
 
 export default function Tv() {
   const [data, setData] = useState([]);
-  const [bookmarks, setBookmarks] = useState({});
   const [filteredData, setFilteredData] = useState([])
 
+  const [bookmarkedItems, setBookmarkedItems] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("bookmarkedItems");
+        return stored ? JSON.parse(stored) : [];
+      } catch (e) {
+        console.error("Bookmark verisi okunamadı", e);
+        return [];
+      }
+    }
+    return [];
+  });
+  // Veriyi çek
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
@@ -18,16 +30,37 @@ export default function Tv() {
       .catch(err => console.error(err))
   }, [])
 
-  const toggleBookmark = (index) => {
-    setBookmarks((prev) => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
+  // localStorage'tan oku
+  useEffect(() => {
+    const stored = localStorage.getItem("bookmarkedItems");
+    if (stored) {
+      setBookmarkedItems(JSON.parse(stored));
+    }
+  }, []);
+
+  // localStorage'a yaz
+  useEffect(() => {
+    localStorage.setItem("bookmarkedItems", JSON.stringify(bookmarkedItems));
+  }, [bookmarkedItems]);
+
+  // Ekle/Çıkar
+  const toggleBookmark = (item) => {
+    const exists = bookmarkedItems.find((i) => i.title === item.title);
+    if (exists) {
+      setBookmarkedItems((prev) =>
+        prev.filter((i) => i.title !== item.title)
+      );
+    } else {
+      setBookmarkedItems((prev) => [...prev, item]);
+    }
   };
+
+  const isBookmarked = (title) =>
+    bookmarkedItems.some((item) => item.title === title);
   return (
     <>
       <Search
-        section="dashboard"
+        section="tv"
         data={data}
         onFilter={setFilteredData}
       />
@@ -44,13 +77,13 @@ export default function Tv() {
               <div key={index} className="relative sm:w-[220px] sm:h-[202px] w-[164px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50">
                 {/* Bookmark Icon */}
                 <button
-                  onClick={() => toggleBookmark(index)}
-                  className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${bookmarks[index] ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
+                  onClick={() => toggleBookmark(item)}
+                  className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
                     }`}
                 >
                   <Bookmark
                     size={16}
-                    fill={bookmarks[index] ? 'currentColor' : 'none'}
+                    fill={isBookmarked(item.title) ? 'currentColor' : 'none'}
                   />
                 </button>
 

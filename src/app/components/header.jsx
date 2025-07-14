@@ -3,11 +3,10 @@
 import { useState } from 'react'
 import { Bookmark, Film, Grid2x2, Tv } from 'lucide-react'
 
-export default function Header({ onSectionChange }) {
-  const [active, setActive] = useState('dashboard')
+export default function Header({ onSectionChange, currentSection }) {
 
   const iconClass = (key) =>
-    `w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] cursor-pointer transition-colors duration-200 ${active === key ? 'text-white' : 'text-[#5A698F]'
+    `w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] cursor-pointer transition-colors duration-200 ${currentSection === key ? 'text-white' : 'text-[#5A698F]'
     } hover:text-white`
 
   return (
@@ -19,28 +18,24 @@ export default function Header({ onSectionChange }) {
           <div className="flex gap-[20px] sm:gap-[32px] xl:gap-[40px]">
             <Grid2x2
               onClick={() => {
-                setActive('dashboard')
                 onSectionChange('dashboard')
               }}
               className={iconClass('dashboard')}
             />
             <Film
               onClick={() => {
-                setActive('movies')
                 onSectionChange('movies')
               }}
               className={iconClass('movies')}
             />
             <Tv
               onClick={() => {
-                setActive('tv')
                 onSectionChange('tv')
               }}
               className={iconClass('tv')}
             />
             <Bookmark
               onClick={() => {
-                setActive('bookmarks')
                 onSectionChange('bookmarks')
               }}
               className={iconClass('bookmarks')}
@@ -64,28 +59,24 @@ export default function Header({ onSectionChange }) {
 
             <Grid2x2
               onClick={() => {
-                setActive('dashboard')
                 onSectionChange('dashboard')
               }}
               className={iconClass('dashboard')}
             />
             <Film
               onClick={() => {
-                setActive('movies')
                 onSectionChange('movies')
               }}
               className={iconClass('movies')}
             />
             <Tv
               onClick={() => {
-                setActive('tv')
                 onSectionChange('tv')
               }}
               className={iconClass('tv')}
             />
             <Bookmark
               onClick={() => {
-                setActive('bookmarks')
                 onSectionChange('bookmarks')
               }}
               className={iconClass('bookmarks')}
