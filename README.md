@@ -1,36 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Geliştirdiğim bu projede, film ve dizi içeriklerini listeleyen bir Entertainment App oluşturdum.
+Projede Next.js ve TailwindCSS kullandım.
+Kullanıcılar istedikleri içerikleri yer imi (bookmark) olarak işaretleyebiliyor ve bu içerikler localStorage aracılığıyla tarayıcıda kalıcı olarak saklanıyor.
+Ayrıca, yer imi listesi ayrı bir sayfa olarak görüntülenebiliyor.
+Projede sade bir kullanıcı arayüzü, responsive tasarım ve performansı ön planda tutarak modern bir frontend deneyimi oluşturmaya odaklandım.
+Frontend alanındaki becerilerimi geliştirmek adına üzerinde çalıştığım bu uygulamayı ilerleyen süreçte farklı özelliklerle genişletmeyi planlıyorum.
+<img width="1240" height="1170" alt="Ekran görüntüsü 2025-07-15 162135" src="https://github.com/user-attachments/assets/ada929f8-6cb4-43a3-911a-724b5539c561" />
+<img width="1246" height="1177" alt="Ekran görüntüsü 2025-07-15 162151" src="https://github.com/user-attachments/assets/c6abf15b-84e4-4f6a-bf0d-6e9de848094a" />
+<img width="791" height="1164" alt="Ekran görüntüsü 2025-07-15 162205" src="https://github.com/user-attachments/assets/77b7de61-6401-42e1-81bc-289e3a2a4068" />
+<img width="377" height="821" alt="Ekran görüntüsü 2025-07-15 162217" src="https://github.com/user-attachments/assets/9a27d6c5-9ee1-45eb-8a0f-1b1c3520c7e3" />
