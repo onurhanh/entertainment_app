@@ -78,7 +78,7 @@ export default function Tv() {
                 {/* Bookmark Icon */}
                 <button
                   onClick={() => toggleBookmark(item)}
-                  className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
+                  className={`absolute top-2 cursor-pointer right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
                     }`}
                 >
                   <Bookmark

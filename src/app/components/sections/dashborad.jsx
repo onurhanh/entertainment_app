@@ -88,7 +88,7 @@ export default function MediaList() {
 
                                 <button
                                     onClick={() => toggleBookmark(items)}
-                                    className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(items.title)
+                                    className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(items.title)
                                         ? "bg-[#10141E]/70 text-white"
                                         : "bg-[#10141E]/70 text-white"
                                         }`}
@@ -140,7 +140,7 @@ export default function MediaList() {
                         >
                             <button
                                 onClick={() => toggleBookmark(item)}
-                                className={`absolute top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
+                                className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
                                     }`}
                             >
                                 <Bookmark
