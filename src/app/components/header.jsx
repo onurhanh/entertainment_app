@@ -1,6 +1,5 @@
 'use client'
 
-import { useRouter } from "next/router";
 import { Bookmark, Film, Grid2x2, Tv } from 'lucide-react'
 
 export default function Header({ onSectionChange, currentSection }) {
@@ -9,9 +8,6 @@ export default function Header({ onSectionChange, currentSection }) {
     `w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] cursor-pointer transition-colors duration-200 ${currentSection === key ? 'text-white' : 'text-[#5A698F]'
     } hover:text-white`
 
-  const RefreshButton = () => {
-    const router = useRouter();
-  }
 
     return (
       <>
@@ -40,7 +36,7 @@ export default function Header({ onSectionChange, currentSection }) {
               />
               <Bookmark
                 onClick={() => {
-                  router.replace(router.asPath)
+                  window.location.reload()
                   onSectionChange('bookmarks')
                 }}
                 className={iconClass('bookmarks')}
