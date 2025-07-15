@@ -67,7 +67,7 @@ export default function Tv() {
       <div className='text-white sm:text-[32px] sm:pt-[0px] sm:px-[25px] px-4 py-4 text-[20px] font-normal leading-[100%]'>
         <h1>TV Series</h1>
       </div>
-      <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-8 gap-4 p-4">
+      <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
         {data.length === 0 ? (
           <p className="text-white">Loading...</p>
         ) : (
