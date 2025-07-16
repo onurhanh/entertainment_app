@@ -58,6 +58,8 @@ export default function MediaList() {
     const isBookmarked = (title) =>
         bookmarkedItems.some((item) => item.title === title);
 
+    const shuffledData = [...data].sort(() => Math.random() - 0.5);
+
     return (
         <>
             <Search
@@ -74,7 +76,10 @@ export default function MediaList() {
                 {data.length === 0 ? (
                     <p className="text-white">Loading...</p>
                 ) : (
-                    filteredData.slice(0, 8).map((items, index) => (
+                    filteredData
+                    .slice(10, 20)
+                    .sort(() => Math.random() - 1)
+                    .map((items, index) => (
                         <div
                             key={index}
                             className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "

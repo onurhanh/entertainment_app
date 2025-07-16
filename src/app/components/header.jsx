@@ -78,6 +78,7 @@ export default function Header({ onSectionChange, currentSection }) {
               />
               <Bookmark
                 onClick={() => {
+                  window.location.reload()
                   onSectionChange('bookmarks')
                 }}
                 className={iconClass('bookmarks')}
