@@ -31,7 +31,7 @@ export default function BookmarksPage({ section }) {
         <h1>Bookmarked Movies</h1>
         </div>
         {bookmarkedMovies.length === 0 ? (
-          <p>Hiç film favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
+          <p className='text-white'>Hiç film favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
         ) : (
           <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
             {bookmarkedMovies.map((item, index) => (
@@ -85,7 +85,7 @@ export default function BookmarksPage({ section }) {
         <h1>Bookmarked TV Series</h1>
         </div>
         {bookmarkedTVSeries.length === 0 ? (
-          <p>Hiç dizi favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
+          <p className='text-white'>Hiç dizi favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
         ) : (
           <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
             {bookmarkedTVSeries.map((item, index) => (
