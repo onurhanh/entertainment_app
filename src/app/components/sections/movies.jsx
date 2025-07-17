@@ -74,7 +74,7 @@ export default function Movies() {
           filteredData
             .filter((item) => item.type === 'movie')
             .map((item, index) => (
-              <div key={index} className="relative sm:w-[220px] w-[164px] flex flex-col h-[164px] sm:h-[202px] rounded-md overflow-hidden shadow-lg z-50">
+              <div key={index} className="relative flex flex-col  rounded-md overflow-hidden shadow-lg z-50">
                 {/* Bookmark Icon */}
                 <button
                   onClick={() => toggleBookmark(item)}
@@ -91,7 +91,7 @@ export default function Movies() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[110px] sm:h-[140px] object-cover"
+                  className="w-full object-cover"
                 />
 
                 {/* Content */}

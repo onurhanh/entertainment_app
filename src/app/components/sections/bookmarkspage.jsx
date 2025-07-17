@@ -26,15 +26,16 @@ export default function BookmarksPage({ section }) {
         onFilter={setFilteredData}
       />
 
-      <div className="text-white sm:pt-[0px] p-4 sm:px-[25px]">
+      <div className="text-white sm:text-[32px] sm:pt-[0px] sm:px-[25px] px-4 py-4 text-[20px] font-normal leading-[100%]">
         {/* Bookmarked Movies */}
-        <h1 className="text-xl mb-4 sm:text-[32px]">Bookmarked Movies</h1>
+        <h1>Bookmarked Movies</h1>
+        </div>
         {bookmarkedMovies.length === 0 ? (
           <p>Hiç film favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:pt-3">
+          <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
             {bookmarkedMovies.map((item, index) => (
-              <div key={index} className="relative w-[164px] sm:w-[220] sm:h-[202px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50">
+              <div key={index} className="relative flex flex-col rounded-md overflow-hidden shadow-lg z-50">
                 <button
                   onClick={() => toggleBookmark(item)}
                   className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
@@ -48,7 +49,7 @@ export default function BookmarksPage({ section }) {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[110px] sm:h-[140px] object-cover"
+                  className="w-full object-cover"
                 />
 
                 <div className="text-white pt-2 flex flex-col justify-between">
@@ -80,13 +81,15 @@ export default function BookmarksPage({ section }) {
         )}
 
         {/* Bookmarked TV Series */}
-        <h1 className="text-xl mt-8 mb-4 sm:text-[32px]">Bookmarked TV Series</h1>
+      <div className="text-white sm:text-[32px] sm:pt-[0px] sm:px-[25px] px-4 py-4 text-[20px] font-normal leading-[100%]">
+        <h1>Bookmarked TV Series</h1>
+        </div>
         {bookmarkedTVSeries.length === 0 ? (
           <p>Hiç dizi favorilenmemiş veya eşleşen sonuç bulunamadı.</p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 sm:pt-3">
+          <div className="grid grid-cols-2 sm:px-[25px] sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-4 p-4">
             {bookmarkedTVSeries.map((item, index) => (
-              <div key={index} className="relative w-[164px] sm:w-[220] sm:h-[202px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50">
+              <div key={index} className="relative flex flex-col rounded-md overflow-hidden shadow-lg z-50">
                 <button
                   onClick={() => toggleBookmark(item)}
                   className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(item.title) ? 'bg-[#10141E]/70 text-white' : 'bg-[#10141E]/70 text-white'
@@ -100,7 +103,7 @@ export default function BookmarksPage({ section }) {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[110px] sm:h-[140px] object-cover"
+                  className="w-full object-cover"
                 />
 
                 <div className="text-white pt-2 flex flex-col justify-between">
@@ -130,7 +133,6 @@ export default function BookmarksPage({ section }) {
             ))}
           </div>
         )}
-      </div>
     </>
   );
 }

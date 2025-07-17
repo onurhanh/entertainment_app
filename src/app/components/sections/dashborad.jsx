@@ -139,7 +139,7 @@ export default function MediaList() {
                     filteredData.map((item, index) => (
                         <div
                             key={index}
-                            className="relative w-[164px] sm:w-[220] sm:h-[202px] flex flex-col h-[164px] rounded-md overflow-hidden shadow-lg z-50"
+                            className="relative  flex flex-col rounded-md overflow-hidden shadow-lg z-50"
                         >
                             <button
                                 onClick={() => toggleBookmark(item)}
@@ -155,7 +155,7 @@ export default function MediaList() {
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-[110px] sm:h-[140px] object-cover"
+                                className="w-full object-cover"
                             />
 
                             <div className="text-white pt-2 flex flex-col justify-between">
