@@ -58,7 +58,6 @@ export default function MediaList() {
     const isBookmarked = (title) =>
         bookmarkedItems.some((item) => item.title === title);
 
-    const trendingItems = data.filter(item => item.trending === true);
 
     return (
         <>
