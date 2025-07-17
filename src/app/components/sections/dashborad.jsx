@@ -58,7 +58,7 @@ export default function MediaList() {
     const isBookmarked = (title) =>
         bookmarkedItems.some((item) => item.title === title);
 
-    const shuffledData = [...data].sort(() => Math.random() - 0.5);
+    const trendingItems = data.filter(item => item.trending === true);
 
     return (
         <>
@@ -77,55 +77,54 @@ export default function MediaList() {
                     <p className="text-white">Loading...</p>
                 ) : (
                     filteredData
-                    .slice(10, 20)
-                    .sort(() => Math.random() - 1)
-                    .map((items, index) => (
-                        <div
-                            key={index}
-                            className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "
-                        >
-                            <div className="relative sm:text-[24px] h-[140px] sm:h-[230px]">
-                                <img
-                                    src={items.image}
-                                    alt={items.title}
-                                    className="w-full h-full object-cover"
-                                />
-
-                                <button
-                                    onClick={() => toggleBookmark(items)}
-                                    className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(items.title)
-                                        ? "bg-[#10141E]/70 text-white"
-                                        : "bg-[#10141E]/70 text-white"
-                                        }`}
-                                >
-                                    <Bookmark
-                                        size={16} c
-                                        fill={
-                                            isBookmarked(items.title) ? "currentColor" : "none"
-                                        }
+                        .filter((item) => item.trending === true)
+                        .map((items, index) => (
+                            <div
+                                key={index}
+                                className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "
+                            >
+                                <div className="relative sm:text-[24px] h-[140px] sm:h-[230px]">
+                                    <img
+                                        src={items.image}
+                                        alt={items.title}
+                                        className="w-full h-full object-cover"
                                     />
-                                </button>
 
-                                <div className="absolute bottom-0 left-0 w-full sm:p-[24px] px-3 pb-3 text-sm bg-gradient-to-t from-black/60 to-transparent">
-                                    <div className="flex items-center sm:text-[15px]  text-xs opacity-80 gap-2">
-                                        <span>{items.release_date.slice(0, 4)}</span>
-                                        <span>•</span>
-                                        <span className="flex items-center gap-1">
-                                            {items.type === "movie" ? (
-                                                <Film size={12} />
-                                            ) : (
-                                                <Tv2 size={12} />
-                                            )}{" "}
-                                            {items.type}
-                                        </span>
-                                        <span>•</span>
-                                        <span>{items.age_rating}</span>
+                                    <button
+                                        onClick={() => toggleBookmark(items)}
+                                        className={`absolute cursor-pointer top-2 right-2 p-2 rounded-full z-10 transition-colors ${isBookmarked(items.title)
+                                            ? "bg-[#10141E]/70 text-white"
+                                            : "bg-[#10141E]/70 text-white"
+                                            }`}
+                                    >
+                                        <Bookmark
+                                            size={16} c
+                                            fill={
+                                                isBookmarked(items.title) ? "currentColor" : "none"
+                                            }
+                                        />
+                                    </button>
+
+                                    <div className="absolute bottom-0 left-0 w-full sm:p-[24px] px-3 pb-3 text-sm bg-gradient-to-t from-black/60 to-transparent">
+                                        <div className="flex items-center sm:text-[15px]  text-xs opacity-80 gap-2">
+                                            <span>{items.release_date.slice(0, 4)}</span>
+                                            <span>•</span>
+                                            <span className="flex items-center gap-1">
+                                                {items.type === "movie" ? (
+                                                    <Film size={12} />
+                                                ) : (
+                                                    <Tv2 size={12} />
+                                                )}{" "}
+                                                {items.type}
+                                            </span>
+                                            <span>•</span>
+                                            <span>{items.age_rating}</span>
+                                        </div>
+                                        <h2 className="text-base font-semibold sm:text-[24px]">{items.title}</h2>
                                     </div>
-                                    <h2 className="text-base font-semibold sm:text-[24px]">{items.title}</h2>
                                 </div>
                             </div>
-                        </div>
-                    ))
+                        ))
                 )}
             </div>
 
