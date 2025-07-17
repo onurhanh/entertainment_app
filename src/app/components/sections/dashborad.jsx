@@ -82,11 +82,11 @@ export default function MediaList() {
                                 key={index}
                                 className="inline-block w-[240px] sm:w-[420px] mr-4 bg-[#1F1F1F] rounded-lg overflow-hidden text-white "
                             >
-                                <div className="relative sm:text-[24px] h-[140px] sm:h-[230px]">
+                                <div className="relative sm:text-[24px] max-h-[150px] sm:max-h-[260px]">
                                     <img
                                         src={items.image}
                                         alt={items.title}
-                                        className="w-full h-full object-cover"
+                                        className="h-full object-cover"
                                     />
 
                                     <button
